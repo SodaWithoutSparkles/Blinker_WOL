@@ -74,7 +74,7 @@ def miotPowerState(state):
 
     BlinkerMIOT.powerState(state)
     BlinkerMIOT.print()
-    wake_on_lan('E0-18-77-C3-0D-F7')
+    wake_on_lan('MAC-address')
 
 def miotQuery(queryCode):
     ''' '''
