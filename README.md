@@ -13,7 +13,7 @@ git clone https://github.com/SodaWithoutSparkles/Blinker_WOL/
 cd Blinker_WOL
 nano Xiaomi_AI_WOL.py
 ```
-更改private key 和MAC 地址，有需要的话更改broadcast address。(第9, 52, 77, 107行）
+更改private key 和MAC 地址，有需要的话更改broadcast address。(第9, 52, 77, 107行)
 之后尝试运行：
 ```
 sudo python3 Xiaomi_AI_WOL.py
@@ -35,7 +35,7 @@ git clone https://github.com/SodaWithoutSparkles/Blinker_WOL/
 cd Blinker_WOL
 nano Xiaomi_AI_WOL.py
 ```
-更改private key 和MAC 地址，有需要的話更改broadcast address。(第9, 52, 77, 107行）
+更改private key 和MAC 地址，有需要的話更改broadcast address。(第9, 52, 77, 107行)
 之後嘗試運行：
 ```
 sudo python3 Xiaomi_AI_WOL.py
