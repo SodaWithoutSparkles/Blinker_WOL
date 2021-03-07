@@ -74,7 +74,7 @@ def miotPowerState(state):
 
     BlinkerMIOT.powerState(state)
     BlinkerMIOT.print()
-    wake_on_lan('MAC-address')
+    wake_on_lan('MAC-address') #Main WOL，Change MAC-address
 
 def miotQuery(queryCode):
     ''' '''
