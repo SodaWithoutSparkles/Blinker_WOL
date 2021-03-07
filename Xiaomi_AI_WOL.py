@@ -133,4 +133,4 @@ BlinkerMIOT.attachQuery(miotQuery)
 if __name__ == '__main__':
     while True:
         Blinker.run()
-        time.sleep(0.5) 
+        time.sleep(0.3) 
