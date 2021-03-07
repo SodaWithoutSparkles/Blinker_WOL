@@ -19,7 +19,7 @@ nano Xiaomi_AI_WOL.py
 sudo python3 Xiaomi_AI_WOL.py
 ```
 关机的话，自己ssh吧。
-
+可以配合`cpulimit`限制cpu usage
 # Blinker_WOL
 使用小米小愛音箱進行WOL，需要有樹莓派
 
@@ -41,4 +41,4 @@ nano Xiaomi_AI_WOL.py
 sudo python3 Xiaomi_AI_WOL.py
 ```
 關機的話，自己ssh吧。
-
+可以配合`cpulimit`限制cpu usage
