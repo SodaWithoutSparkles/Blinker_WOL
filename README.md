@@ -14,7 +14,10 @@ cd Blinker_WOL
 nano Xiaomi_AI_WOL.py
 ```
 更改private key 和MAC 地址，有需要的话更改broadcast address。
-之后尝试运行：`sudo python3 Xiaomi_AI_WOL.py`
+之后尝试运行：
+```
+sudo python3 Xiaomi_AI_WOL.py
+```
 关机的话，自己ssh吧。
 
 # Blinker_WOL
@@ -33,6 +36,9 @@ cd Blinker_WOL
 nano Xiaomi_AI_WOL.py
 ```
 更改private key 和MAC 地址，有需要的話更改broadcast address。
-之後嘗試運行：`sudo python3 Xiaomi_AI_WOL.py`
+之後嘗試運行：
+```
+sudo python3 Xiaomi_AI_WOL.py
+```
 關機的話，自己ssh吧。
 
