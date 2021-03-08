@@ -120,7 +120,7 @@ def button2_callback(state):
     button2.text('Test') #Change button description when press, can be changed
     button2.print(state)
 
-#IDK what this park is for, it is in the example code so I copyed t
+#IDK what this park is for, it is in the example code so I copyed it
 def data_callback(data):
     BLINKER_LOG('read:', data)
     global counter
