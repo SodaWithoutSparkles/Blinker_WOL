@@ -13,19 +13,19 @@ auth = 'Private Key' #Enter your private Key
 BLINKER_DEBUG.debugAll()
 
 Blinker.mode("BLINKER_WIFI")
-Blinker.miotType('BLINKER_MIOT_OUTLET')
-Blinker.begin(auth)
+Blinker.miotType('BLINKER_MIOT_OUTLET') #Pretend this is a outlet
+Blinker.begin(auth) #auth
 
-#檢查mac地址
+#Check MAC address
 def check_mac(mac_addr):
-    #長度檢查
+    #Length check
     if len(mac_addr) == 12:
         pass
     elif len(mac_addr) == 17:
         mac_addr = mac_addr.replace(':', '')
     else:
         return False
-    #正則檢查
+    #Regex check
     pattern = re.compile(r'[0-9A-Fa-f]{12}')
     result = pattern.match(mac_addr)
     if result is not None:
@@ -33,7 +33,7 @@ def check_mac(mac_addr):
     else:
         return False
 
-#Main WOL
+#WOL function, Call on demand
 def wake_on_lan(mac):
     if len(mac) == 12:
         pass
@@ -41,7 +41,7 @@ def wake_on_lan(mac):
         mac = mac.replace (':', '')
         mac = mac.replace('-', '')
     else:
-        raise ValueError('mac地址有誤')
+        raise ValueError('Incorrect MAC address')
 
     if check_mac(mac):
         data = 'FFFFFFFFFFFF' + mac * 16
@@ -54,18 +54,19 @@ def wake_on_lan(mac):
         sock.sendto(byte_data, ('192.168.1.255', 9)) #If your IP is 192.168.0.x, change to 192.168.0.255
         sock.close()
     else :
-        raise ValueError('mac地址有誤')
+        raise ValueError('Incorrect MAC address')
 
-button1 = BlinkerButton("btn-abc")
-button2 = BlinkerButton("btn-2")
-text1 = BlinkerText("tex-abc")
-number1 = BlinkerNumber("num-abc")
+button1 = BlinkerButton("btn-abc") #On the blinker app add a button named "btn-abc", Manual WOL button
+button2 = BlinkerButton("btn-2") #Add a button named "btn-2", for echo testing
+text1 = BlinkerText("tex-abc") #Unused, reserved
+number1 = BlinkerNumber("num-abc") #IDK why it was here, no actual usage. Do not delete
 
 counter = 0
 state_tmp = ''
 oState = 'on'
 
-def miotPowerState(state):
+#When power state needed to change this part would get called
+def miotPowerState(state): 
     ''' '''
 
     global oState
@@ -78,7 +79,8 @@ def miotPowerState(state):
     BlinkerMIOT.print()
     wake_on_lan('MAC-address') #Main WOL，Change MAC-address
 
-def miotQuery(queryCode):
+#IDK why this is here, just copying from the example code and worked, so keep it
+def miotQuery(queryCode): 
     ''' '''
 
     global oState
@@ -102,9 +104,9 @@ def button1_callback(state):
     """ """
 
     BLINKER_LOG('get button state: ', state)
-    button1.icon('fad fa-power-off')
-    button1.color('#298FCC')
-    button1.text('正在開機...')
+    button1.icon('fad fa-power-off') #Change button icon on press, can be changed
+    button1.color('#298FCC') #Change colour on press, can be changed
+    button1.text('Waking Up') #Change button description when press, can be changed
     button1.print(state)
     wake_on_lan('MAC-address') #Main WOL，Change MAC-address
 
@@ -113,11 +115,12 @@ def button2_callback(state):
 
     BLINKER_LOG('get button state: ', state)
 
-    button2.icon('fad fa-python')
-    button2.color('#298FCC')
-    button2.text('Button')
+    button2.icon('fad fa-smile-wink') #Change button icon on press, can be changed
+    button2.color('#298FCC') #Change colour on press, can be changed
+    button2.text('Test') #Change button description when press, can be changed
     button2.print(state)
 
+#IDK what this park is for, it is in the example code so I copyed t
 def data_callback(data):
     BLINKER_LOG('read:', data)
     global counter
@@ -125,9 +128,9 @@ def data_callback(data):
     counter += 1
     number1.print(counter)
 
-button1.attach(button1_callback)
-button2.attach(button2_callback)
-Blinker.attachData(data_callback)
+button1.attach(button1_callback) # when button1 is pressed
+button2.attach(button2_callback) # when button2 is pressed
+Blinker.attachData(data_callback) 
 
 BlinkerMIOT.attachPowerState(miotPowerState)
 BlinkerMIOT.attachQuery(miotQuery)
@@ -135,4 +138,4 @@ BlinkerMIOT.attachQuery(miotQuery)
 if __name__ == '__main__':
     while True:
         Blinker.run()
-        time.sleep(0.3) 
+        time.sleep(0.3) #Can remove delay when using CPUlimit
