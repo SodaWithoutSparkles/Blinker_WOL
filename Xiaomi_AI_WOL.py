@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from Blinker.Blinker import Blinker, BlinkerButton, BlinkerNumber, BlinkerMIOT, BlinkerText
 from Blinker.BlinkerConfig import *
 from Blinker.BlinkerDebug import *
@@ -49,7 +51,7 @@ def wake_on_lan(mac):
             byte_data = byte_data + byte_dat
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        sock.sendto(byte_data, ('192.168.1.255', 7)) #If your IP is 192.168.0.x, change to 192.168.0.255
+        sock.sendto(byte_data, ('192.168.1.255', 9)) #If your IP is 192.168.0.x, change to 192.168.0.255
         sock.close()
     else :
         raise ValueError('mac地址有誤')
